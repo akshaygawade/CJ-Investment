@@ -1,0 +1,31 @@
+<template>
+    <lightning-record-view-form  record-id={recordId} object-api-name="Bond_Offering__c">
+    <div class="slds-grid slds-grid_vertical">
+        <div class="slds-col slds-p-horizontal_medium">
+          <!--
+          <lightning-output-field label="Units Sold" field-name="Units_Sold__c"></lightning-output-field>
+          <lightning-output-field label="Units Remaining" field-name="Units_Remaining__c" ></lightning-output-field>
+          <lightning-output-field label="Units Pending" field-name="Units_Pending__c" ></lightning-output-field> 
+          <lightning-output-field field-name="Units_Sold__c" value ={UnitsSold}></lightning-output-field>
+          <lightning-output-field  field-name="Units_Remaining__c" value ={UnitsRemaining}></lightning-output-field>
+          <lightning-output-field  field-name="Units_Pending__c" value={UnitsPending}></lightning-output-field>-->
+        
+          <label class="slds-col slds-form-element__label slds-form-element__legend"> Units Sold : {UnitsSold}  </label>
+          
+          
+
+        </div>
+    
+      <div class="slds-col slds-p-horizontal_medium">
+        
+        <label class="slds-col slds-form-element__label slds-form-element__legend"> Units Remaining : {UnitsRemaining} </label>
+      </div>
+    
+      <div class="slds-col slds-p-horizontal_medium">
+        
+        <label class="slds-col slds-form-element__label slds-form-element__legend">Units Pending : {UnitsPending} </label>
+    </div>
+</div>
+</lightning-record-view-form>
+    
+</template>

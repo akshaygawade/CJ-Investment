@@ -1,0 +1,135 @@
+<template>
+  <!-- PAGE HEADER -->
+<div class="slds-page-header">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid">
+              <span class="slds-icon_container slds-icon-standard-opportunity">
+                      
+                <lightning-icon icon-name="standard:relationship" alternative-text="relationship" ></lightning-icon>
+
+              </span>
+        <!-- GRID COL -->
+        <div class="slds-col slds-has-flexi-truncate">
+          <!-- HEADING AREA -->
+          <p class="slds-text-title_caps slds-line-height_reset"> &nbsp;&nbsp;Bond Offering</p>
+          <!-- / Header SHould Take Dinamically based On User Clicked  -->
+          <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"  title="My Header">&nbsp;&nbsp;{title}</h1>
+          <!-- / HEADING AREA -->
+        </div>
+      </div>
+    </div>
+    <!-- / PAGE HEADER -->
+  <!-- card*******************************************************************************************************-->
+  
+
+<article class="slds-card">
+
+  
+<lightning-record-edit-form  record-id={recordId} object-api-name="Bond_Offering__c" onsuccess={handleSuccess} > 
+  <div class="slds-card__header slds-grid slds-align_absolute-center">
+  <header class="slds-media slds-media_center slds-has-flexi-truncate">
+  <div class="slds-media__body">
+  <h2 class="slds-card__header-title">
+  <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Card Header">
+  <span>Bond Offering Builder</span>
+  </a>
+  </h2>
+  
+  <div class="slds-align_absolute-center">
+  <button class="slds-button slds-button_neutral"  type="submit" >Save</button>
+  <button class="slds-button slds-button_neutral" type="reset" >Cancel</button>
+  </div>
+</div>
+  </header>
+  </div>
+
+
+
+<!-- <div class="slds-card__body"> -->
+
+
+<!--Input form -->
+<div class="slds-section slds-is-open">
+  <h3 class="slds-section__title slds-theme_inverse">
+  <span class="slds-truncate slds-p-horizontal_small"> &nbsp;&nbsp;Bond Offering Details </span> 
+  </h3>
+
+
+<div aria-hidden="false" class="slds-section__content slds-m-around_medium ">
+<div class="slds-grid">
+          <div class="slds-col slds-p-horizontal_medium">
+              <lightning-input-field label="Bond Offering Name" field-name="Name"></lightning-input-field>
+            <lightning-input-field label="Sales Rep" field-name="Sales_Rep__c" ></lightning-input-field>
+          </div>
+      
+        <div class="slds-col slds-p-horizontal_medium">
+          <lightning-input-field label="Client" field-name="Client__c"></lightning-input-field>
+          <lightning-input-field label="Interest Rate" type="number" field-name="Interest_Rate__c"></lightning-input-field>
+      </div>
+  </div>
+</div>
+
+</div>
+
+
+
+</lightning-record-edit-form>
+<!--output form-->
+<div class="slds-section slds-is-open">
+
+  <h3 class="slds-section__title slds-theme_inverse">
+      <span class="slds-truncate slds-p-horizontal_small"> &nbsp;&nbsp;Bond Offering Progress </span> 
+      </h3>
+    <!--  <lightning-record-view-form  record-id={recordId} object-api-name="Bond_Offering__c"> -->
+        <div aria-hidden="false" class="slds-section__content slds-m-around_medium ">
+
+<!--
+        <div class="slds-grid">
+                    <div class="slds-col slds-p-horizontal_medium">
+                      <lightning-output-field label="Units Sold" field-name="Units_Sold__c"></lightning-output-field>
+                      <lightning-output-field label="Units Remaining" field-name="Units_Remaining__c" ></lightning-output-field>
+                      <lightning-output-field label="Units Pending" field-name="Units_Pending__c" ></lightning-output-field>
+                    </div>
+                
+                  <div class="slds-col slds-p-horizontal_medium">
+                </div>
+            </div>-->
+<c-bond-offering_-page-center record-id={recordId} item-name={itemName} > </c-bond-offering_-page-center>
+
+          </div>
+<!--</lightning-record-view-form> -->
+      
+</div>
+
+
+
+<!--Data Table form-->
+<div class="slds-section slds-is-open">
+
+  </div>
+  <h3 class="slds-section__title slds-theme_inverse">
+      <span class="slds-truncate slds-p-horizontal_small"> &nbsp;&nbsp;Investor Buys </span> 
+  </h3>
+  <div aria-hidden="false" class="slds-m-around_medium ">
+
+      <!--Pagination component shoould go here -->
+      
+
+      <c-bond-offering_-page-bottom record-id={recordId} ontablechange={handleTableData} onnewbondcreated={navigateToEdit}></c-bond-offering_-page-bottom> 
+
+
+  </div>
+
+  
+
+
+  <footer class="slds-card__footer"></footer>
+  
+  </article>
+
+
+  <!-- / card*******************************************************************************************************-->
+
+
+      
+</template>

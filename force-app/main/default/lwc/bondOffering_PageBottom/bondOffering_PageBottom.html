@@ -1,0 +1,54 @@
+<template>
+<lightning-card>  
+
+<!-- <div class = "slds-m-around_medium"> -->
+    <div class="slds-size--1-of-4 slds-p-around--large slds-form-element_horizontal">
+        <label class="slds-form-element__label slds-form-element__legend">Investor Filter</label>
+        <lightning-combobox class="combobox"  
+            name="Number Of Records"  
+            value={selectedValue}
+            placeholder={recordsPerPage}
+            options={comboboxOption}
+            onchange={handleComboboxChange}>
+        </lightning-combobox>
+    </div>
+    <template if:true = {data}> 
+        <div style="height: 200px;"> 
+            <lightning-datatable key-field="Id" 
+                                    data={data} 
+                                    columns={columns}
+                                    show-row-number-column="true"
+                                    onrowselection={handleRowSelection}
+                                    onsave={handleSave}
+                                    draft-values={draftValues}
+                                    selected-rows={selectedRow}
+                                    oncellchange={handleCellChange}
+                                    onrowaction={handleRowActions}>
+            </lightning-datatable> 
+        </div>                  
+    </template>
+        <template if:true = {error}>{error} </template>
+                <lightning-layout class= "slds-align_absolute-center">
+                  <lightning-layout-item>
+                    <lightning-button label="First" icon-name="utility:chevronleft" onclick={firstHandler}></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                    <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="grow"></lightning-layout-item>
+                    
+                    <lightning-layout-item>
+                        
+                    <label class="slds-form-element__label"> &nbsp;Page {page} of {totalPage}.</label>
+                    </lightning-layout-item>
+                   <lightning-layout-item>
+                    <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                    <lightning-button label="Last" icon-name="utility:chevronright" icon-position="right" onclick={lastHandler}></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+   <!-- </div> -->
+</lightning-card>
+</template>
